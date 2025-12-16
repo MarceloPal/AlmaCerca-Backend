@@ -30,6 +30,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/health").permitAll()
                 // Rutas que ya estaban públicas
                 .requestMatchers("/api/auth/**", "/api/products/**").permitAll() 
                 
